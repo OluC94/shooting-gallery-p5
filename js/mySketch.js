@@ -21,52 +21,29 @@ function draw() {
 
 const createTargets = () => {
 	while (targets.length < 10) {
+        const x = random(20, width - 20)
+        const y  = random(20, height - 20)
+        const diameter = random(10, 50)
 
-		const target = {
-			x: random(0, width),
-			y: random(0, height),
-			diameter: random(10, 50),
-			colour: random(currentPalette),
-			isAlive: true,
-		}
-		targets.push(target)
+        targets.push(new Target(x, y, diameter))
+		
 	}
 }
 
 const drawTargets = () => {
 	for (let target of targets) {
-		if (target.isAlive) {
-			fill(target.colour)
-			circle(target.x, target.y, target.diameter)
-		}
+		target.display()
 	}
 }
 
-
 function mouseClicked() {
-    
-
+    for (let target of targets){
+        target.clicked(mouseX, mouseY);
+    }
 }
 
 function keyPressed() {
     if (key === "s") {
         save("my-p5-screenshot");
-    }
-}
-
-class Target {
-    constructor(x, y, diameter){
-        this.x = x;
-        this.y = y;
-        this.diameter = diameter;
-        this.colour = random(currentPalette),
-        this.isAlive = true;
-    }
-
-    display(){
-        if (this.isAlive){
-            fill(this.colour);
-            circle(this.x, this.y, this.diameter)
-        }
     }
 }
