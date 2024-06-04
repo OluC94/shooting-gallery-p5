@@ -1,4 +1,8 @@
-# p5js-js-global-mode-starter
+# Hosting
+
+This site is hosted at https://oc-p5-shooting-gallery.netlify.app/
+
+## p5js-js-global-mode-starter
 
 A starter project for coding p5.js in JavaScript.
 
